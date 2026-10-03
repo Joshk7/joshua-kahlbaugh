@@ -112,6 +112,36 @@ body {
   transform: translateY(0);
 }
 
+/* Mobile nav: checkbox-driven open state */
+#nav-toggle:checked ~ .nav-burger {
+  border-color: var(--line);
+  background: white;
+  color: var(--lake);
+}
+
+#nav-toggle:checked ~ .nav-burger .burger-line {
+  transform: translateY(6px) rotate(45deg);
+}
+
+#nav-toggle:checked ~ .nav-burger .burger-mid {
+  opacity: 0;
+}
+
+#nav-toggle:checked ~ .nav-burger .burger-line-2 {
+  transform: translateY(-6px) rotate(-45deg);
+}
+
+#nav-toggle:checked ~ .brand-mark,
+.site-header:has(#nav-toggle:checked) .brand-mark {
+  color: var(--lake);
+}
+
+.site-header:has(#nav-toggle:checked) {
+  background: color-mix(in srgb, var(--paper) 90%, transparent);
+  box-shadow: 0 1px 0 var(--line);
+  backdrop-filter: blur(12px);
+}
+
 @media (prefers-reduced-motion: reduce) {
   html {
     scroll-behavior: auto;
