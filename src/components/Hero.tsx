@@ -14,7 +14,7 @@ export function Hero() {
           fill
           priority
           sizes="100vw"
-          className="animate-hero-drift object-cover object-[center_35%] scale-[1.06]"
+          className="object-cover object-[center_35%]"
         />
         <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(10,44,54,0.45)_0%,rgba(10,44,54,0.18)_38%,rgba(10,44,54,0.78)_100%),linear-gradient(90deg,rgba(10,44,54,0.55),transparent_55%)]" />
       </div>
