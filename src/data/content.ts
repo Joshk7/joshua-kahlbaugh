@@ -15,7 +15,7 @@ export const person = {
 export const hero = {
   headline: "Building clear, useful interfaces with\u00A0care.",
   support:
-    "Software engineer based in Spokane Valley, WA, shipping React and Java experiences and exploring the outdoors when the code can wait.",
+    "Software engineer based in Spokane Valley, WA, building with React and Java, and outdoors when I'm away from the keyboard.",
 } as const
 
 export const about = {
