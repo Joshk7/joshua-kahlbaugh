@@ -65,21 +65,25 @@ export function Experience() {
       <Reveal>
         <div className="mt-10">
           <h3 className="mb-4 font-display text-[1.45rem] text-lake-deep">Selected projects</h3>
-          <div className="grid gap-4 md:grid-cols-2 md:gap-x-8 md:gap-y-5">
+          <div className="grid gap-7">
             {experience.projects.map((project) => (
-              <div key={project.name}>
-                <div className="flex flex-wrap items-baseline justify-between gap-2">
-                  <h4 className="font-display text-xl text-lake">{project.name}</h4>
+              <div key={project.name} className="grid gap-3 border-b border-line pb-7">
+                <div className="flex flex-wrap items-baseline justify-between gap-2 md:gap-6">
+                  <div>
+                    <h4 className="font-display text-[clamp(1.35rem,2.5vw,1.7rem)] text-lake-deep">
+                      {project.name}
+                    </h4>
+                    {"stack" in project && project.stack ? (
+                      <p className="font-medium text-spruce">{project.stack}</p>
+                    ) : null}
+                  </div>
                   {"dates" in project && project.dates ? (
-                    <p className="text-sm tracking-[0.04em] text-ink-soft uppercase">
+                    <p className="text-sm tracking-[0.04em] text-ink-soft uppercase whitespace-nowrap">
                       {project.dates}
                     </p>
                   ) : null}
                 </div>
-                {"stack" in project && project.stack ? (
-                  <p className="mt-1 text-sm font-medium text-spruce">{project.stack}</p>
-                ) : null}
-                <p className="mt-1 text-[0.95rem] text-ink-soft">{project.body}</p>
+                <p className="text-ink-soft">{project.body}</p>
               </div>
             ))}
           </div>
