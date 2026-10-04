@@ -23,7 +23,7 @@ export function Hero() {
         <p className="animate-rise animate-rise-delay-1 font-display text-[clamp(3rem,10vw,5.6rem)] font-semibold leading-[0.95] tracking-[-0.035em] text-balance">
           {person.name}
         </p>
-        <h1 className="animate-rise animate-rise-delay-2 mt-4 max-w-[28rem] font-sans text-[clamp(1.05rem,2.4vw,1.35rem)] font-normal leading-snug text-white/92">
+        <h1 className="animate-rise animate-rise-delay-2 mt-4 max-w-[30rem] font-sans text-[clamp(1.05rem,2.4vw,1.35rem)] font-normal leading-snug text-pretty text-white/92">
           {hero.headline}
         </h1>
         <p className="animate-rise animate-rise-delay-3 mt-4 max-w-[30rem] text-[0.98rem] leading-relaxed text-white/82">

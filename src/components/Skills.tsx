@@ -16,7 +16,7 @@ export function Skills() {
       </Reveal>
 
       <Reveal>
-        <div className="grid gap-6 md:grid-cols-3 md:gap-8">
+        <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4 lg:gap-8">
           {skills.groups.map((group) => (
             <div key={group.label}>
               <h3 className="mb-3 border-b border-line pb-2 font-display text-lg text-lake-deep">

@@ -1,4 +1,4 @@
-# Joshua Kahlbaugh — Personal Website
+# Joshua Kahlbaugh Personal Website
 
 Personal site for **Joshua Kahlbaugh**: about, hobbies, resume/experience, skills, and contact.
 
