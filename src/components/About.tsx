@@ -23,6 +23,7 @@ export function About() {
             alt={`Portrait of ${person.name}`}
             width={900}
             height={1350}
+            sizes="(min-width: 48rem) 22rem, calc(100vw - 2rem)"
             className="aspect-[3/4] w-full rounded-[0.2rem] object-cover object-[center_18%]"
           />
 

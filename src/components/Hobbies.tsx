@@ -37,6 +37,7 @@ export function Hobbies() {
                   alt={item.alt}
                   width={1600}
                   height={2133}
+                  sizes="(min-width: 74rem) 37rem, (min-width: 48rem) 54vw, calc(100vw - 2rem)"
                   className="min-h-72 w-full object-cover"
                 />
               </div>
