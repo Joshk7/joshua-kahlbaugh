@@ -13,7 +13,7 @@ export function Hobbies() {
           <h2 className="mt-3 font-display text-[clamp(2rem,4.5vw,3rem)] text-lake-deep">
             {hobbies.lead}
           </h2>
-          <p className="mt-3 max-w-lg text-ink-soft">{hobbies.intro}</p>
+          <p className="mt-3 max-w-xl text-pretty text-ink-soft">{hobbies.intro}</p>
         </div>
       </Reveal>
 

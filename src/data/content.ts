@@ -7,7 +7,7 @@ export const person = {
   phone: "218-491-4226",
   links: {
     github: "https://github.com/JoshK7",
-    linkedin: "https://www.linkedin.com/in/joshkahlbaugh",
+    linkedin: "https://www.linkedin.com/in/josh-kahlbaugh-8a307a221/",
     resumePdf: "/Joshua_Kahlbaugh_SoftwareEngineer_2026.pdf",
   },
 } as const
@@ -15,7 +15,7 @@ export const person = {
 export const hero = {
   headline: "Building clear, useful interfaces with\u00A0care.",
   support:
-    "Software engineer based in Spokane Valley, WA, shipping React and Java experiences and exploring the outdoors when the code can wait.",
+    "Software engineer based in Spokane Valley, WA, building with React and Java, and outdoors when I'm away from the keyboard.",
 } as const
 
 export const about = {
@@ -30,7 +30,7 @@ export const about = {
 export const hobbies = {
   lead: "Away from the keyboard",
   intro:
-    "Living near water and open landscape shapes how I spend free time. Outdoors first, then back to the editor with a clearer head.",
+    "Living near water and open landscape shapes how I spend free time. Outdoors first, then into the next project with clearer focus.",
   items: [
     {
       title: "Lake days",
@@ -41,7 +41,7 @@ export const hobbies = {
     },
     {
       title: "Fishing",
-      body: "Fishing is a chance to relax. It reliably puts me in a better mood and gives problem-solving a quieter backdrop.",
+      body: "Fishing is a chance to relax. It reliably puts me in a better mood and leaves me sharper when I get back to work.",
       image: "/images/fishing.webp",
       imageFallback: "/images/fishing.jpg",
       alt: "Fishing outdoors",
@@ -51,7 +51,7 @@ export const hobbies = {
 
 export const experience = {
   lead: "Experience",
-  intro: "Roles and projects from my 2026 software engineering resume.",
+  intro: "Roles and projects from my resume.",
   jobs: [
     {
       role: "Software Engineer",
