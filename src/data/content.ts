@@ -15,14 +15,14 @@ export const person = {
 export const hero = {
   headline: "Building clear, useful interfaces with care.",
   support:
-    "Software engineer based in Spokane Valley, WA — shipping React and Java experiences and exploring the outdoors when the code can wait.",
+    "Software engineer based in Spokane Valley, WA, shipping React and Java experiences and exploring the outdoors when the code can wait.",
 } as const
 
 export const about = {
   lead: "A little about me",
   paragraphs: [
     "I graduated Summa Cum Laude from the University of St. Thomas in St. Paul, MN, with a B.S. in Computer Science and a minor in Data Science (GPA 3.96).",
-    "I'm a software engineer with a passion for building beautiful, performant, and accessible websites. I work with modern CSS, clean JavaScript/TypeScript, and React — and I adapt to whatever tools the problem needs.",
+    "I'm a software engineer with a passion for building beautiful, performant, and accessible websites. I work with modern CSS, clean JavaScript/TypeScript, and React, and I adapt to whatever tools the problem needs.",
     "I've interned at SecretLab, LLC, led a senior capstone dashboard project, and keep sharpening my skills on LeetCode. You can find more of my work on GitHub.",
   ],
 } as const
@@ -30,18 +30,18 @@ export const about = {
 export const hobbies = {
   lead: "Away from the keyboard",
   intro:
-    "Living near water and open landscape shapes how I spend free time — outdoors first, then back to the editor with a clearer head.",
+    "Living near water and open landscape shapes how I spend free time. Outdoors first, then back to the editor with a clearer head.",
   items: [
     {
       title: "Lake days",
-      body: "I've spent a lot of time along Lake Superior near Duluth — Brighton Beach on the North Shore and blooms at Leif Erickson a little further up. There are beautiful sights all around that shore.",
+      body: "I've spent a lot of time along Lake Superior near Duluth, from Brighton Beach on the North Shore to blooms at Leif Erickson a little further up. There are beautiful sights all around that shore.",
       image: "/images/beach.webp",
       imageFallback: "/images/beach.jpg",
       alt: "Rocky shoreline at Brighton Beach on Lake Superior",
     },
     {
       title: "Fishing",
-      body: "Fishing is a chance to relax — it reliably puts me in a better mood and gives problem-solving a quieter backdrop.",
+      body: "Fishing is a chance to relax. It reliably puts me in a better mood and gives problem-solving a quieter backdrop.",
       image: "/images/fishing.webp",
       imageFallback: "/images/fishing.jpg",
       alt: "Fishing outdoors",

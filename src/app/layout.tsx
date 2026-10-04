@@ -18,7 +18,7 @@ const sora = Sora({
 export const metadata: Metadata = {
   title: "Joshua Kahlbaugh",
   description:
-    "Personal website for Joshua Kahlbaugh — software engineer in Spokane Valley, WA. About, hobbies, experience, and contact.",
+    "Personal website for Joshua Kahlbaugh, software engineer in Spokane Valley, WA. About, hobbies, experience, and contact.",
   icons: {
     icon: [
       { url: "/favicon.png", type: "image/png", sizes: "512x512" },
