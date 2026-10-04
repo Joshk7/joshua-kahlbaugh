@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { person } from "@/data/content";
 
 const navItems = [
@@ -14,6 +14,8 @@ const navItems = [
 
 export function SiteHeader() {
   const [scrolled, setScrolled] = useState(false);
+  const [menuOpen, setMenuOpen] = useState(false);
+  const toggleButtonRef = useRef<HTMLButtonElement>(null);
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 24);
@@ -59,6 +61,7 @@ export function SiteHeader() {
     };
 
     const syncOverflow = () => {
+      setMenuOpen(toggle.checked);
       if (ignoreToggleChange) return;
       if (toggle.checked) lockScroll();
       else unlockScroll();
@@ -86,6 +89,7 @@ export function SiteHeader() {
 
       ignoreToggleChange = true;
       toggle.checked = false;
+      setMenuOpen(false);
       unlockScroll();
       ignoreToggleChange = false;
 
@@ -104,7 +108,11 @@ export function SiteHeader() {
     links.forEach((link) => link.addEventListener("click", onNavLinkClick));
 
     const onKeyDown = (event: KeyboardEvent) => {
-      if (event.key === "Escape") closeMenu();
+      if (event.key !== "Escape" || !toggle.checked) return;
+      // The drawer becomes inert once closed, so move focus out of it first.
+      const focusWasInMenu = document.getElementById("mobile-nav")?.contains(document.activeElement);
+      closeMenu();
+      if (focusWasInMenu) toggleButtonRef.current?.focus();
     };
     window.addEventListener("keydown", onKeyDown);
 
@@ -118,8 +126,15 @@ export function SiteHeader() {
 
   return (
     <>
-      {/* Peer checkbox must sit as a sibling of the drawer/backdrop (not inside fixed header). */}
-      <input id="nav-toggle" type="checkbox" className="peer sr-only" />
+      {/* Peer checkbox must sit as a sibling of the drawer/backdrop (not inside fixed header).
+          It only holds the open state for CSS; the burger button below is the accessible control. */}
+      <input
+        id="nav-toggle"
+        type="checkbox"
+        className="peer sr-only"
+        tabIndex={-1}
+        aria-hidden="true"
+      />
 
       <header
         className={`site-header fixed inset-x-0 top-0 z-50 px-4 py-3.5 transition-[background,box-shadow,backdrop-filter] duration-300 md:px-8 ${
@@ -155,22 +170,30 @@ export function SiteHeader() {
             </ul>
           </nav>
 
-          <label
-            htmlFor="nav-toggle"
-            className={`nav-burger relative z-50 inline-flex h-11 w-11 cursor-pointer items-center justify-center rounded-[0.35rem] border md:hidden ${
+          <button
+            ref={toggleButtonRef}
+            type="button"
+            onClick={() => {
+              const toggle = document.getElementById("nav-toggle") as HTMLInputElement | null;
+              if (!toggle) return;
+              toggle.checked = !toggle.checked;
+              toggle.dispatchEvent(new Event("change"));
+            }}
+            aria-expanded={menuOpen}
+            aria-controls="mobile-nav"
+            className={`nav-burger relative z-50 inline-flex h-11 w-11 cursor-pointer items-center justify-center rounded-[0.35rem] border focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-amber md:hidden ${
               scrolled
                 ? "border-line bg-white text-lake"
                 : "border-white/35 bg-lake-deep/25 text-white"
             }`}
-            aria-label="Toggle menu"
+            aria-label="Menu"
           >
-            <span className="sr-only">Toggle menu</span>
             <span aria-hidden="true" className="relative flex h-3.5 w-4 flex-col justify-between">
               <span className="burger-line block h-0.5 w-full origin-center bg-current transition-transform duration-200" />
               <span className="burger-mid block h-0.5 w-full bg-current transition-opacity duration-200" />
               <span className="burger-line-2 block h-0.5 w-full origin-center bg-current transition-transform duration-200" />
             </span>
-          </label>
+          </button>
         </div>
       </header>
 
@@ -182,6 +205,8 @@ export function SiteHeader() {
 
       <nav
         id="mobile-nav"
+        aria-label="Mobile"
+        inert={!menuOpen}
         className="pointer-events-none fixed inset-y-0 right-0 z-40 flex w-[min(18rem,84vw)] translate-x-full flex-col bg-[#f4f8f9] px-6 pt-24 shadow-[var(--shadow-soft)] transition-transform duration-300 peer-checked:pointer-events-auto peer-checked:translate-x-0 md:hidden"
       >
         <ul className="grid gap-1">
