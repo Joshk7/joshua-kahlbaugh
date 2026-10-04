@@ -37,7 +37,7 @@ export function Hobbies() {
                   alt={item.alt}
                   width={1600}
                   height={2133}
-                  className="min-h-72 w-full object-cover transition-transform duration-[1.1s] ease-[cubic-bezier(0.22,1,0.36,1)] hover:scale-[1.04]"
+                  className="min-h-72 w-full object-cover"
                 />
               </div>
               <div>
