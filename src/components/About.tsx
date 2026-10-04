@@ -11,7 +11,7 @@ export function About() {
             {about.lead}
           </p>
           <h2 className="mt-3 font-display text-[clamp(2rem,4.5vw,3rem)] text-lake-deep">
-            Software engineer with North Shore roots and a clear UI focus.
+            Software Engineer with roots in Minnesota
           </h2>
         </div>
       </Reveal>
@@ -23,9 +23,9 @@ export function About() {
             <Image
               src="/images/me.webp"
               alt={`Portrait of ${person.name}`}
-              width={841}
-              height={1376}
-              className="aspect-[3/4] w-full rounded-[0.2rem] object-cover shadow-[var(--shadow-soft)]"
+              width={900}
+              height={1350}
+              className="aspect-[3/4] w-full rounded-[0.2rem] object-cover object-[center_18%] shadow-[var(--shadow-soft)]"
             />
           </div>
 
