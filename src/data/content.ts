@@ -21,7 +21,7 @@ export const hero = {
 export const about = {
   lead: "A little about me",
   paragraphs: [
-    "I graduated Summa Cum Laude from the University of St. Thomas in St. Paul, MN, with a B.S. in Computer Science and a minor in Data Science (GPA 3.96).",
+    "I graduated Summa Cum Laude from the University of St. Thomas in St. Paul, MN, with a B.S. in Computer Science and a minor in Data Science.",
     "I'm a software engineer with a passion for building beautiful, performant, and accessible websites. I work with modern CSS, clean JavaScript/TypeScript, and React, and I adapt to whatever tools the problem needs.",
     "I've interned at SecretLab, LLC, led a senior capstone dashboard project, and keep sharpening my skills on LeetCode. You can find more of my work on GitHub.",
   ],
