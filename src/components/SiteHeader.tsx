@@ -26,9 +26,33 @@ export function SiteHeader() {
     const toggle = document.getElementById("nav-toggle") as HTMLInputElement | null;
     if (!toggle) return;
 
-    const syncOverflow = () => {
-      document.body.style.overflow = toggle.checked ? "hidden" : "";
+    let lockedScrollY = 0;
+
+    const lockScroll = () => {
+      lockedScrollY = window.scrollY;
+      document.body.style.position = "fixed";
+      document.body.style.top = `-${lockedScrollY}px`;
+      document.body.style.left = "0";
+      document.body.style.right = "0";
+      document.body.style.width = "100%";
+      document.body.style.overflow = "hidden";
     };
+
+    const unlockScroll = () => {
+      document.body.style.position = "";
+      document.body.style.top = "";
+      document.body.style.left = "";
+      document.body.style.right = "";
+      document.body.style.width = "";
+      document.body.style.overflow = "";
+      window.scrollTo(0, lockedScrollY);
+    };
+
+    const syncOverflow = () => {
+      if (toggle.checked) lockScroll();
+      else unlockScroll();
+    };
+
     const closeMenu = () => {
       toggle.checked = false;
       syncOverflow();
@@ -49,7 +73,7 @@ export function SiteHeader() {
       toggle.removeEventListener("change", syncOverflow);
       links.forEach((link) => link.removeEventListener("click", closeMenu));
       window.removeEventListener("keydown", onKeyDown);
-      document.body.style.overflow = "";
+      unlockScroll();
     };
   }, []);
 
