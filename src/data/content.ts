@@ -13,7 +13,7 @@ export const person = {
 } as const
 
 export const hero = {
-  headline: "Building clear, useful interfaces with care.",
+  headline: "Building clear, useful interfaces with\u00A0care.",
   support:
     "Software engineer based in Spokane Valley, WA, shipping React and Java experiences and exploring the outdoors when the code can wait.",
 } as const
