@@ -1,3 +1,7 @@
+export const site = {
+  url: "https://joshua-kahlbaugh.vercel.app",
+} as const
+
 export const person = {
   name: "Joshua Kahlbaugh",
   shortName: "Josh Kahlbaugh",

@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Fraunces, Sora } from "next/font/google";
 import { SiteHeader } from "@/components/SiteHeader";
+import { person, site } from "@/data/content";
 import "./globals.css";
 
 const fraunces = Fraunces({
@@ -15,10 +16,27 @@ const sora = Sora({
   weight: ["300", "400", "500", "600"],
 });
 
+const description =
+  "Personal website for Joshua Kahlbaugh, software engineer in Spokane Valley, WA. About, hobbies, experience, and contact.";
+
 export const metadata: Metadata = {
-  title: "Joshua Kahlbaugh",
-  description:
-    "Personal website for Joshua Kahlbaugh, software engineer in Spokane Valley, WA. About, hobbies, experience, and contact.",
+  metadataBase: new URL(site.url),
+  title: person.name,
+  description,
+  alternates: { canonical: "/" },
+  openGraph: {
+    type: "website",
+    url: "/",
+    siteName: person.name,
+    title: `${person.name} · ${person.title}`,
+    description,
+    locale: "en_US",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: `${person.name} · ${person.title}`,
+    description,
+  },
   icons: {
     icon: [
       { url: "/favicon.png", type: "image/png", sizes: "512x512" },
