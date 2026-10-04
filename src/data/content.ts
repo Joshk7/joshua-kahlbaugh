@@ -7,7 +7,7 @@ export const person = {
   phone: "218-491-4226",
   links: {
     github: "https://github.com/JoshK7",
-    linkedin: "https://www.linkedin.com/in/joshkahlbaugh",
+    linkedin: "https://www.linkedin.com/in/josh-kahlbaugh-8a307a221/",
     resumePdf: "/Joshua_Kahlbaugh_SoftwareEngineer_2026.pdf",
   },
 } as const
