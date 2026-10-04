@@ -29,6 +29,9 @@ export function Experience() {
                     {job.company}
                     {job.location ? ` · ${job.location}` : ""}
                   </p>
+                  {"stack" in job && job.stack ? (
+                    <p className="mt-1 text-sm text-ink-soft">{job.stack}</p>
+                  ) : null}
                 </div>
                 <p className="text-sm tracking-[0.04em] text-ink-soft uppercase whitespace-nowrap">
                   {job.dates}
@@ -52,9 +55,10 @@ export function Experience() {
             {experience.education.place}
           </p>
           <p className="text-ink-soft">
-            {experience.education.minor} · {experience.education.honors} ·{" "}
-            {experience.education.year}
+            {experience.education.minor} · {experience.education.honors} · GPA{" "}
+            {experience.education.gpa}
           </p>
+          <p className="text-sm text-ink-soft">{experience.education.dates}</p>
         </div>
       </Reveal>
 
@@ -64,7 +68,17 @@ export function Experience() {
           <div className="grid gap-4 md:grid-cols-2 md:gap-x-8 md:gap-y-5">
             {experience.projects.map((project) => (
               <div key={project.name}>
-                <h4 className="font-display text-xl text-lake">{project.name}</h4>
+                <div className="flex flex-wrap items-baseline justify-between gap-2">
+                  <h4 className="font-display text-xl text-lake">{project.name}</h4>
+                  {"dates" in project && project.dates ? (
+                    <p className="text-sm tracking-[0.04em] text-ink-soft uppercase">
+                      {project.dates}
+                    </p>
+                  ) : null}
+                </div>
+                {"stack" in project && project.stack ? (
+                  <p className="mt-1 text-sm font-medium text-spruce">{project.stack}</p>
+                ) : null}
                 <p className="mt-1 text-[0.95rem] text-ink-soft">{project.body}</p>
               </div>
             ))}

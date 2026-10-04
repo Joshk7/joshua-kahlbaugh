@@ -2,27 +2,27 @@ export const person = {
   name: "Joshua Kahlbaugh",
   shortName: "Josh Kahlbaugh",
   title: "Software Engineer",
-  location: "Liberty Lake, WA",
+  location: "Spokane Valley, WA",
   email: "joshk7683@gmail.com",
   phone: "218-491-4226",
   links: {
-    github: "https://github.com/Joshk7",
-    linkedin: "https://www.linkedin.com/in/josh-kahlbaugh-8a307a221",
+    github: "https://github.com/JoshK7",
+    linkedin: "https://www.linkedin.com/in/joshkahlbaugh",
     leetcode: "https://leetcode.com/u/JoshK7",
-    resumePdf: "/JoshuaKahlbaughResume.pdf",
+    resumePdf: "/Joshua_Kahlbaugh_SoftwareEngineer_2026.pdf",
   },
 } as const
 
 export const hero = {
   headline: "Building clear, useful interfaces with care.",
   support:
-    "Frontend-focused software engineer based in Liberty Lake, WA — shipping React experiences and exploring the outdoors when the code can wait.",
+    "Software engineer based in Spokane Valley, WA — shipping React and Java experiences and exploring the outdoors when the code can wait.",
 } as const
 
 export const about = {
   lead: "A little about me",
   paragraphs: [
-    "I graduated Summa Cum Laude from the University of St. Thomas in St. Paul, MN, with a B.S. in Computer Science and a minor in Data Science.",
+    "I graduated Summa Cum Laude from the University of St. Thomas in St. Paul, MN, with a B.S. in Computer Science and a minor in Data Science (GPA 3.96).",
     "I'm a software engineer with a passion for building beautiful, performant, and accessible websites. I work with modern CSS, clean JavaScript/TypeScript, and React — and I adapt to whatever tools the problem needs.",
     "I've interned at SecretLab, LLC, led a senior capstone dashboard project, and keep sharpening my skills on LeetCode. You can find more of my work on GitHub.",
   ],
@@ -59,29 +59,34 @@ export const hobbies = {
 
 export const experience = {
   lead: "Experience",
-  intro: "Roles and projects drawn from my public resume and portfolio.",
+  intro: "Roles and projects from my 2026 software engineering resume.",
   jobs: [
     {
       role: "Software Engineer",
       company: "Alarm.com (OpenEye)",
-      location: "WA",
-      dates: "June 2025 – Current",
+      location: null,
+      stack: "Java, Spring, SQL, CrateDB, TypeScript, React",
+      dates: "June 2025 – Present",
       bullets: [
-        "Styled customer-facing dashboards in React by updating HTML and CSS inside styled components to support Marketing and Product Management initiatives.",
-        "Resolved a production issue by scanning AWS logs, investigating Java Spring REST API endpoints, and editing TypeScript/JavaScript to restore a broken event report used for analytics on cloud camera events.",
-        "Mentored coworkers on Git version branches, CI/CD pipelines, and coordinating with DevOps for a major-version transition.",
-        "Developed a SQL-based system to manage feature restrictions for Facial Recognition, AI Visual Check, and AI Visual Search.",
+        "Designed temporal arm state tracking in CrateDB to fix a defect where delayed device events were evaluated against the current arm state, causing false-positive and suppressed alerts.",
+        "Extended MySQL and Java Spring service architecture to support offline deterrent capabilities (white light, audio playback) across 100K+ recording devices.",
+        "Fixed a production bug truncating customer alert history exports to 7 days, tracing it through AWS CloudWatch logs to a null pointer exception silently swallowed on alerts missing optional metadata.",
+        "Implemented a SAML SSO login flow for devices connecting to web services, reducing login times by 25%.",
+        "Migrated the React/TypeScript codebase to TypeScript 7’s native compiler, reducing CI typechecking time by 5x.",
       ],
     },
     {
-      role: "Intern",
+      role: "Software Engineer Intern",
       company: "SecretLab, LLC",
       location: null,
+      stack: "React Native, REST APIs, Figma",
       dates: "November 2021 – December 2023",
       bullets: [
-        "Built interactive React Native components that talked to REST APIs so users could add and delete items in a daily activity tracker timeline.",
-        "Designed Figma prototypes to improve interfaces across multiple screens.",
-        "Collaborated with designers and backend developers to optimize UI/UX.",
+        "Shipped React Native features to a production consumer health app paired with an FDA-cleared glucose and ketone monitoring device.",
+        "Built an interactive timeline visualizing glucose and ketone readings alongside daily activity, backed by RESTful API endpoints.",
+        "Designed Figma prototypes for new app screens ahead of implementation.",
+        "Integrated React Native frontend features with backend REST APIs across iOS and Android.",
+        "Found and fixed an account creation flow that allowed users to bypass terms of service acceptance, closing a compliance gap in a regulated health product.",
       ],
     },
   ],
@@ -91,24 +96,16 @@ export const experience = {
     degree: "B.S. in Computer Science",
     minor: "Minor in Data Science",
     honors: "Summa Cum Laude",
+    gpa: "3.96",
+    dates: "September 2021 – May 2024",
     year: "2024",
   },
   projects: [
     {
-      name: "Senior Capstone Project",
-      body: "Led a team building a dashboard with Java Spring, JPA, and Hibernate to track student progress on assignments, with Chart.js visualizations for Git contribution metrics.",
-    },
-    {
-      name: "Personal Website",
-      body: "Created and maintained a portfolio site with React, TypeScript, CSS, HTML, and Git to showcase web development work.",
-    },
-    {
-      name: "Tic Tac Toe (minimax)",
-      body: "Built an unbeatable computer opponent using the minimax algorithm to explore every move until a win, loss, or draw score is returned.",
-    },
-    {
-      name: "Sudoku",
-      body: "Integrated a Sudoku generator and practiced React board state, styling, and component props — a focused exercise in interactive UI.",
+      name: "Student Progress Dashboard",
+      stack: "Java, Spring",
+      dates: "May 2024",
+      body: "Led a team of 5 developers across 8 sprints building a Java Spring dashboard tracking student assignment progress. Improved backend data retrieval performance by 50% through query and method optimization, built Chart.js visualizations for per-student GitHub contribution metrics for 200+ students, and implemented unit tests to validate aggregation of student performance data.",
     },
   ],
 } as const
@@ -117,16 +114,20 @@ export const skills = {
   lead: "Tools I use",
   groups: [
     {
-      label: "Frontend",
-      items: ["JavaScript", "TypeScript", "React", "React Native", "Next.js", "HTML", "CSS", "Tailwind CSS"],
+      label: "Languages",
+      items: ["Java", "Python", "TypeScript", "JavaScript", "SQL", "HTML/CSS"],
     },
     {
-      label: "Backend & data",
-      items: ["Java Spring", "JPA / Hibernate", "SQL", "REST APIs", "Chart.js"],
+      label: "Frameworks",
+      items: ["Spring", "React", "React Native", "Express.js"],
     },
     {
-      label: "Platform & craft",
-      items: ["AWS", "Git", "CI/CD", "Figma", "Accessible UI"],
+      label: "Databases",
+      items: ["MySQL", "CrateDB"],
+    },
+    {
+      label: "Developer tools",
+      items: ["Git", "Copilot", "Atlassian Bamboo", "AWS", "Figma"],
     },
   ],
 } as const
