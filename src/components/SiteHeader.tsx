@@ -27,6 +27,16 @@ export function SiteHeader() {
     if (!toggle) return;
 
     let lockedScrollY = 0;
+    let ignoreToggleChange = false;
+
+    const clearBodyLockStyles = () => {
+      document.body.style.position = "";
+      document.body.style.top = "";
+      document.body.style.left = "";
+      document.body.style.right = "";
+      document.body.style.width = "";
+      document.body.style.overflow = "";
+    };
 
     const lockScroll = () => {
       lockedScrollY = window.scrollY;
@@ -39,16 +49,17 @@ export function SiteHeader() {
     };
 
     const unlockScroll = () => {
-      document.body.style.position = "";
-      document.body.style.top = "";
-      document.body.style.left = "";
-      document.body.style.right = "";
-      document.body.style.width = "";
-      document.body.style.overflow = "";
-      window.scrollTo(0, lockedScrollY);
+      const root = document.documentElement;
+      const previousBehavior = root.style.scrollBehavior;
+      // Avoid CSS smooth-scrolling the restore from 0 → prior offset.
+      root.style.scrollBehavior = "auto";
+      clearBodyLockStyles();
+      window.scrollTo({ top: lockedScrollY, left: 0, behavior: "auto" });
+      root.style.scrollBehavior = previousBehavior;
     };
 
     const syncOverflow = () => {
+      if (ignoreToggleChange) return;
       if (toggle.checked) lockScroll();
       else unlockScroll();
     };
@@ -68,16 +79,20 @@ export function SiteHeader() {
 
       event.preventDefault();
       const target = document.querySelector<HTMLElement>(href);
+      // Measure while still locked so layout matches what the user sees.
+      const destinationY = target
+        ? Math.max(0, lockedScrollY + target.getBoundingClientRect().top)
+        : lockedScrollY;
 
-      // Unlock first so we resume at the locked scroll position, then travel
-      // the short path to the section (up or down) instead of from the top.
+      ignoreToggleChange = true;
       toggle.checked = false;
       unlockScroll();
+      ignoreToggleChange = false;
 
       if (!target) return;
 
       requestAnimationFrame(() => {
-        target.scrollIntoView({ behavior: "smooth", block: "start" });
+        window.scrollTo({ top: destinationY, left: 0, behavior: "smooth" });
         history.pushState(null, "", href);
       });
     };
