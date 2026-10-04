@@ -119,7 +119,7 @@ export const skills = {
     },
     {
       label: "Developer tools",
-      items: ["Git", "Copilot", "Atlassian Bamboo", "AWS", "Figma"],
+      items: ["Git", "Copilot", "Cursor", "Atlassian Bamboo", "AWS", "Figma"],
     },
   ],
 } as const
