@@ -21,9 +21,11 @@ export const metadata: Metadata = {
     "Personal website for Joshua Kahlbaugh — software engineer in Liberty Lake, WA. About, hobbies, experience, and contact.",
   icons: {
     icon: [
+      { url: "/favicon.png", type: "image/png", sizes: "512x512" },
+      { url: "/favicon-32.png", type: "image/png", sizes: "32x32" },
       { url: "/favicon.svg", type: "image/svg+xml" },
-      { url: "/favicon-32.png", sizes: "32x32", type: "image/png" },
     ],
+    apple: [{ url: "/apple-touch-icon.png", sizes: "180x180", type: "image/png" }],
   },
 };
 
