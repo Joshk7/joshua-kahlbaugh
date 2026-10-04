@@ -11,7 +11,7 @@ export function About() {
             {about.lead}
           </p>
           <h2 className="mt-3 font-display text-[clamp(2rem,4.5vw,3rem)] text-lake-deep">
-            Software engineer with North Shore roots and a clear UI focus.
+            Software Engineer with roots in Minnesota
           </h2>
         </div>
       </Reveal>
