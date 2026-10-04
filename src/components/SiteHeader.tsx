@@ -26,19 +26,82 @@ export function SiteHeader() {
     const toggle = document.getElementById("nav-toggle") as HTMLInputElement | null;
     if (!toggle) return;
 
-    const syncOverflow = () => {
-      document.body.style.overflow = toggle.checked ? "hidden" : "";
+    let lockedScrollY = 0;
+    let ignoreToggleChange = false;
+
+    const clearBodyLockStyles = () => {
+      document.body.style.position = "";
+      document.body.style.top = "";
+      document.body.style.left = "";
+      document.body.style.right = "";
+      document.body.style.width = "";
+      document.body.style.overflow = "";
     };
+
+    const lockScroll = () => {
+      lockedScrollY = window.scrollY;
+      document.body.style.position = "fixed";
+      document.body.style.top = `-${lockedScrollY}px`;
+      document.body.style.left = "0";
+      document.body.style.right = "0";
+      document.body.style.width = "100%";
+      document.body.style.overflow = "hidden";
+    };
+
+    const unlockScroll = () => {
+      const root = document.documentElement;
+      const previousBehavior = root.style.scrollBehavior;
+      // Avoid CSS smooth-scrolling the restore from 0 → prior offset.
+      root.style.scrollBehavior = "auto";
+      clearBodyLockStyles();
+      window.scrollTo({ top: lockedScrollY, left: 0, behavior: "auto" });
+      root.style.scrollBehavior = previousBehavior;
+    };
+
+    const syncOverflow = () => {
+      if (ignoreToggleChange) return;
+      if (toggle.checked) lockScroll();
+      else unlockScroll();
+    };
+
     const closeMenu = () => {
       toggle.checked = false;
       syncOverflow();
+    };
+
+    const onNavLinkClick = (event: MouseEvent) => {
+      const link = event.currentTarget as HTMLAnchorElement;
+      const href = link.getAttribute("href");
+      if (!href?.startsWith("#")) {
+        closeMenu();
+        return;
+      }
+
+      event.preventDefault();
+      const target = document.querySelector<HTMLElement>(href);
+      // Measure while still locked so layout matches what the user sees.
+      const destinationY = target
+        ? Math.max(0, lockedScrollY + target.getBoundingClientRect().top)
+        : lockedScrollY;
+
+      ignoreToggleChange = true;
+      toggle.checked = false;
+      unlockScroll();
+      ignoreToggleChange = false;
+
+      if (!target) return;
+
+      requestAnimationFrame(() => {
+        window.scrollTo({ top: destinationY, left: 0, behavior: "smooth" });
+        history.pushState(null, "", href);
+      });
     };
 
     syncOverflow();
     toggle.addEventListener("change", syncOverflow);
 
     const links = document.querySelectorAll<HTMLAnchorElement>(".mobile-nav-link");
-    links.forEach((link) => link.addEventListener("click", closeMenu));
+    links.forEach((link) => link.addEventListener("click", onNavLinkClick));
 
     const onKeyDown = (event: KeyboardEvent) => {
       if (event.key === "Escape") closeMenu();
@@ -47,9 +110,9 @@ export function SiteHeader() {
 
     return () => {
       toggle.removeEventListener("change", syncOverflow);
-      links.forEach((link) => link.removeEventListener("click", closeMenu));
+      links.forEach((link) => link.removeEventListener("click", onNavLinkClick));
       window.removeEventListener("keydown", onKeyDown);
-      document.body.style.overflow = "";
+      unlockScroll();
     };
   }, []);
 
