@@ -46,13 +46,6 @@ export const hobbies = {
       imageFallback: "/images/fishing.jpg",
       alt: "Fishing outdoors",
     },
-    {
-      title: "Training",
-      body: "I'm a firm believer that health is wealth. Working out and calisthenics keep me sharp mentally and physically — alongside hiking whenever I can get outside.",
-      image: "/images/gym.webp",
-      imageFallback: "/images/gym.jpg",
-      alt: "Strength training and calisthenics",
-    },
   ],
 } as const
 
