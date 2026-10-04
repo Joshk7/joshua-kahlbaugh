@@ -58,11 +58,35 @@ export function SiteHeader() {
       syncOverflow();
     };
 
+    const onNavLinkClick = (event: MouseEvent) => {
+      const link = event.currentTarget as HTMLAnchorElement;
+      const href = link.getAttribute("href");
+      if (!href?.startsWith("#")) {
+        closeMenu();
+        return;
+      }
+
+      event.preventDefault();
+      const target = document.querySelector<HTMLElement>(href);
+
+      // Unlock first so we resume at the locked scroll position, then travel
+      // the short path to the section (up or down) instead of from the top.
+      toggle.checked = false;
+      unlockScroll();
+
+      if (!target) return;
+
+      requestAnimationFrame(() => {
+        target.scrollIntoView({ behavior: "smooth", block: "start" });
+        history.pushState(null, "", href);
+      });
+    };
+
     syncOverflow();
     toggle.addEventListener("change", syncOverflow);
 
     const links = document.querySelectorAll<HTMLAnchorElement>(".mobile-nav-link");
-    links.forEach((link) => link.addEventListener("click", closeMenu));
+    links.forEach((link) => link.addEventListener("click", onNavLinkClick));
 
     const onKeyDown = (event: KeyboardEvent) => {
       if (event.key === "Escape") closeMenu();
@@ -71,7 +95,7 @@ export function SiteHeader() {
 
     return () => {
       toggle.removeEventListener("change", syncOverflow);
-      links.forEach((link) => link.removeEventListener("click", closeMenu));
+      links.forEach((link) => link.removeEventListener("click", onNavLinkClick));
       window.removeEventListener("keydown", onKeyDown);
       unlockScroll();
     };
