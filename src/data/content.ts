@@ -21,9 +21,9 @@ export const hero = {
 export const about = {
   lead: "A little about me",
   paragraphs: [
-    "I graduated Summa Cum Laude from the University of St. Thomas in St. Paul, MN, with a B.S. in Computer Science and a minor in Data Science.",
-    "I'm a software engineer with a passion for building beautiful, performant, and accessible websites. I work with modern CSS, JavaScript/TypeScript, and React, and I adapt to whatever tools the problem needs.",
-    "I've interned at SecretLab, LLC, led a senior capstone dashboard project, and keep sharpening my skills. You can find more of my work on GitHub.",
+    "I'm a software engineer at Alarm.com (OpenEye), working across Java Spring services, SQL, TypeScript, and React. I care about building clear, performant experiences and adapting to whatever tools the problem needs.",
+    "Before that, I interned at SecretLab, LLC, shipping React Native features for a production consumer health app paired with an FDA-cleared glucose and ketone monitoring device.",
+    "I graduated Summa Cum Laude from the University of St. Thomas in St. Paul, MN, with a B.S. in Computer Science and a minor in Data Science. For my senior capstone, I led a team of five building a Java Spring Student Progress Dashboard. You can find more of my work on GitHub.",
   ],
 } as const
 
