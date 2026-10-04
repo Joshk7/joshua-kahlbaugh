@@ -8,7 +8,6 @@ export const person = {
   links: {
     github: "https://github.com/JoshK7",
     linkedin: "https://www.linkedin.com/in/joshkahlbaugh",
-    leetcode: "https://leetcode.com/u/JoshK7",
     resumePdf: "/Joshua_Kahlbaugh_SoftwareEngineer_2026.pdf",
   },
 } as const

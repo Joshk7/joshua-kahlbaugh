@@ -45,14 +45,6 @@ export function Contact() {
             >
               GitHub
             </a>
-            <a
-              href={person.links.leetcode}
-              className="w-fit text-[1.05rem] text-lake no-underline transition hover:border-b hover:border-amber hover:text-lake-deep"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              LeetCode
-            </a>
           </div>
         </div>
       </Reveal>
