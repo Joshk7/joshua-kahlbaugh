@@ -53,9 +53,6 @@ export function Contact() {
             >
               LeetCode
             </a>
-            <p className="mt-2 text-sm text-ink-soft">
-              Contact details are from Josh&apos;s public resume and portfolio sites.
-            </p>
           </div>
         </div>
       </Reveal>
