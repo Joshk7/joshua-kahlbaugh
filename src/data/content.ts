@@ -51,7 +51,7 @@ export const hobbies = {
 
 export const experience = {
   lead: "Experience",
-  intro: "From my resume.",
+  intro: "Roles and projects from my resume.",
   jobs: [
     {
       role: "Software Engineer",
