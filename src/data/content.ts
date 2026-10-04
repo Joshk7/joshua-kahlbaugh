@@ -41,7 +41,7 @@ export const hobbies = {
     },
     {
       title: "Fishing",
-      body: "Fishing is a chance to relax. It reliably puts me in a better mood and gives problem-solving a quieter backdrop.",
+      body: "Fishing is a chance to relax. It reliably puts me in a better mood and leaves me sharper when I get back to work.",
       image: "/images/fishing.webp",
       imageFallback: "/images/fishing.jpg",
       alt: "Fishing outdoors",
