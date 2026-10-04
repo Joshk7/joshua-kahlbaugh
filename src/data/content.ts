@@ -30,7 +30,7 @@ export const about = {
 export const hobbies = {
   lead: "Away from the keyboard",
   intro:
-    "Living near water and open landscape shapes how I spend free time. Outdoors first, then into the next project with clearer focus.",
+    "Living near water and open landscape shapes how I spend free time. Outdoors first, then into the next project with clearer focus.",
   items: [
     {
       title: "Lake days",
