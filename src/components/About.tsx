@@ -23,9 +23,9 @@ export function About() {
             <Image
               src="/images/me.webp"
               alt={`Portrait of ${person.name}`}
-              width={841}
-              height={1376}
-              className="aspect-[3/4] w-full rounded-[0.2rem] object-cover shadow-[var(--shadow-soft)]"
+              width={900}
+              height={1350}
+              className="aspect-[3/4] w-full rounded-[0.2rem] object-cover object-[center_18%] shadow-[var(--shadow-soft)]"
             />
           </div>
 
